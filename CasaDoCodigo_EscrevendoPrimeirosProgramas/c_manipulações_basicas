@@ -1,3 +1,0 @@
-salario = int(input('Digite o salario: '))
-imposto = float(input('Digite o Imposto em % (ex: 27.5)? '))
-print("O salario Liquido é: {0}".format(salario - (salario *(imposto * 0.01))))
