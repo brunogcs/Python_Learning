@@ -25,6 +25,20 @@ for arquivo in dicionarioArquivos:
     if dicionarioArquivos[arquivo] == 1:
         selectedFile = arquivo  
 
+finalpath = path + '\\' + selectedFile
+
+def read_meta_data(path):
+    with open(path, "rt") as data:
+        meta_data = []
+        for line in data:
+            line_data = line.split(',')
+            meta_data.append((line_data[0],line_data[1],line_data[2]))
+        return meta_data
+
+read_meta_data(finalpath)
+
+exit()
+
 # Abre o arquivo zip em modo de leitura
 with zipfile.ZipFile(path, 'r') as zip_ref:
     # Lê o conteúdo do arquivo dentro do zip
@@ -32,9 +46,8 @@ with zipfile.ZipFile(path, 'r') as zip_ref:
 
     # Agora, você pode manipular o conteúdo do arquivo como desejar
     print(conteudo_arquivo.decode('utf-8'))  # Decodifica o conteúdo em UTF-8 (ou outro encoding, se aplicável)
-    
 
-exit()
+
     
 def extract_entity_name(filename):
     return filename.split('.')[0]
